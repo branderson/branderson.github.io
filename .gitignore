@@ -1,0 +1,12 @@
+# Dependencies
+node_modules
+bower_components
+
+# Generated files
+dist
+
+# Cache
+.sass-cache
+
+#Other
+*.swp

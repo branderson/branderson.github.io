@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-site",
+  "homepage": "https://github.com/branderson/branderson.github.io",
+  "authors": [
+    "Brad Anderson <brad.anderson1995@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.7",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}
