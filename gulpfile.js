@@ -22,14 +22,14 @@ gulp.task('bower', function() {
 });
 
 // Inject sources
-gulp.task('inject', function() {
+gulp.task('inject', gulp.series('clean:index', function() {
     var target = gulp.src('src/index.html');
     var sources = gulp.src([config.distPath + '/**/*.js',
                             config.distPath + '/**/*.css'], {read: false});
 
     return target.pipe(inject(sources))
         .pipe(gulp.dest('.'));
-})
+}));
 
 // Copy FontAwesome to dist
 gulp.task('icons', function() {
@@ -121,16 +121,19 @@ gulp.task('webserver', function() {
     }));
 });
 
+gulp.task('clean:index', gulp.series(function() {
+    return del(['index.html']);
+}));
+
 // Clean dist folder and index.html
-gulp.task('clean:dist', function() {
-    del(['index.html']);
+gulp.task('clean:dist', gulp.series(function() {
     return del([
         'dist/**/*'
     ]);
-});
+}));
 
 // Clean project
-gulp.task('clean', gulp.parallel('clean:dist'));
+gulp.task('clean', gulp.parallel('clean:index', 'clean:dist'));
 
 // Clean dist, build Sass and copy sources to dist
 gulp.task('build', gulp.series(gulp.parallel('icons', 'sass', 'css', 'js'), 'inject'));
