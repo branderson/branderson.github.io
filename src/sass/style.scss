@@ -116,6 +116,16 @@ section.success {
     padding-top: 75px;
   }
 }
+.section-heading {
+    h2 {
+        display: block;
+        // font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        // font-weight: 700;
+        // font-size: 2em;
+        // color: $header-text-color;
+    }
+}
 .portfolio-item {
     h3 {
         font-family: "Montserrat";//, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -170,12 +180,39 @@ section.success {
     }
 }
 .project-description {
+    h3 {
+    }
 }
 .project-title {
     h2 {
+        transform: uppercase;
     }
     img {
     }
+}
+/* Carousel base class */
+.carousel {
+    height: 500px;
+    margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    z-index: 10;
+}
+/* Declare heights because of positioning of img element */
+.carousel .item {
+    height: 500px;
+    background-color: #777;
+}
+.carousel-inner > .item > img {
+    display: block;
+    margin: auto;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // min-width: 100%;
+    width: auto;
+    height: 500px;
 }
 .navbar-custom {
     background: $navbar-background-color;
