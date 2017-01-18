@@ -1,4 +1,5 @@
 @import 'bootstrap';
+@import 'font-awesome';
 
 $text-color: #000000;
 $accent-color: #555555;
@@ -159,6 +160,22 @@ section.success {
             opacity: 1;
         }
     }
+    * {
+        z-index: 2;
+    }
+}
+@media (min-width: 767px) {
+    #portfolio .portfolio-item {
+        margin: 0 0 30px;
+    }
+}
+.project-description {
+}
+.project-title {
+    h2 {
+    }
+    img {
+    }
 }
 .navbar-custom {
     background: $navbar-background-color;
@@ -170,18 +187,15 @@ section.success {
     a:focus {
         outline: none;
     }
-
     .navbar-brand {
         color: $navbar-text-color;
     }
-
     .navbar-brand:hover,
     .navbar-brand:focus,
     .navbar-brand:active,
     .navbar-brand.active {
         color: $navbar-text-color;
     }
-
     .navbar-nav {
         letter-spacing: 1px;
         li a {
@@ -206,14 +220,12 @@ section.success {
             background: $navbar-background-color;
         }
     }
-
     .navbar-toggle {
         color: $navbar-text-color;
         text-transform: uppercase;
         font-size: 10px;
         border-color: white;
     }
-
     .navbar-toggle:hover,
     .navbar-toggle:focus {
         background-color: $navbar-background-color;
@@ -360,7 +372,6 @@ fieldset[disabled] .btn-success.active {
 .btn.active {
     outline: none;
 }
-
 .scroll-top {
     position: fixed;
     right: 2%;
@@ -379,70 +390,4 @@ fieldset[disabled] .btn-success.active {
     .btn:focus {
         outline: none;
     }
-}
-
-
-
-
-
-
-
-.portfolio-modal .modal-content {
-  border-radius: 0;
-  background-clip: border-box;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border: none;
-  min-height: 100%;
-  padding: 100px 0;
-  text-align: center;
-}
-.portfolio-modal .modal-content h2 {
-  margin: 0;
-  font-size: 3em;
-}
-.portfolio-modal .modal-content img {
-  margin-bottom: 30px;
-}
-.portfolio-modal .modal-content .item-details {
-  margin: 30px 0;
-}
-.portfolio-modal .close-modal {
-  position: absolute;
-  width: 75px;
-  height: 75px;
-  background-color: transparent;
-  top: 25px;
-  right: 25px;
-  cursor: pointer;
-}
-.portfolio-modal .close-modal:hover {
-  opacity: 0.3;
-}
-.portfolio-modal .close-modal .lr {
-  height: 75px;
-  width: 1px;
-  margin-left: 35px;
-  background-color: $navbar-background-color;
-  transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  /* IE 9 */
-  -webkit-transform: rotate(45deg);
-  /* Safari and Chrome */
-  z-index: 1051;
-}
-.portfolio-modal .close-modal .lr .rl {
-  height: 75px;
-  width: 1px;
-  background-color: $navbar-background-color;
-  transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  /* IE 9 */
-  -webkit-transform: rotate(90deg);
-  /* Safari and Chrome */
-  z-index: 1052;
-}
-.portfolio-modal .modal-backdrop {
-  opacity: 0;
-  display: none;
 }
