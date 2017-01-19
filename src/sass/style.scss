@@ -1,13 +1,25 @@
 // @import 'bootstrap';
 @import 'font-awesome';
 
-$text-color: #000000;
-$accent-color: #555555;
+// $background-color: #FFFFFF;
+// $text-color: #000000;
+// $accent-color: #555555;
+// $header-background-color: #555555;
+// $header-text-color: #FFFFFF;
+// $header-accent-color: #FFFFFF;
+// $navbar-background-color: #000000;
+// $navbar-text-color: #FFFFFF;
+// $about-background-color: #000000;
+
+$background-color: #282828;
+$text-color: #EBDBB2;
+$accent-color: #CC241D;
 $header-background-color: #555555;
-$header-text-color: #FFFFFF;
-$header-accent-color: #FFFFFF;
-$navbar-background-color: #000000;
-$navbar-text-color: #FFFFFF;
+$header-text-color: #EBDBB2;
+$header-accent-color: #98971A;
+$navbar-background-color: #1D2021;
+$navbar-text-color: #EBDBB2;
+$about-background-color: #3C3836;
 
 p {
     font-family: "Roboto";
@@ -43,10 +55,17 @@ hr.line-primary {
     border-color: $accent-color;
     max-width: 500px;
 }
+hr.line-full {
+    @extend .line-custom;
+    border-color: $accent-color;
+    max-width: 100%;
+}
 body {
   // font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   // overflow-x: hidden;
+    color: $text-color;
     padding-top: 50px;
+    background: $background-color;
 }
 header {
     text-align: center;
@@ -104,8 +123,7 @@ section {
     }
 }
 section.success {
-  background: $navbar-background-color;
-  color: white;
+  background: $about-background-color;
 }
 @media (max-width: 767px) {
   section {
@@ -209,6 +227,9 @@ section.success {
     }
 }
 .project-description {
+    // border-style: solid;
+    // border-width: 1px;
+
     h3 {
         font-family: "Montserrat";//, "Helvetica Neue", Helvetica, Arial, sans-serif;
         text-align: center;
@@ -222,32 +243,27 @@ section.success {
         font-family: "Roboto";
     }
 }
-/* Carousel base class */
 .carousel {
-    // margin-bottom: 60px;
-    // height: 504px;
-    // width: 896px;
+    height: 500px;
+    overflow: hidden;
 
-    /* Declare heights because of positioning of img element */
     .item {
-        width: 100%;
-        height: 100%;
+        height: 500px;
+        overflow: hidden;
         background-color: #777;
     }
-    .item > img {
-        min-width: 100%;
-        display: block;
-        margin: auto;
-        // position: absolute;
-        // top: 0;
-        // left: 0;
-        // min-width: 100%;
-        // width: auto;
-        // height: 500px;
+    img {
+        object-fit: cover;
+        min-height: 500px;
     }
-    /* Since positioning the image, we need to help out the caption */
+    .carousel-control.left {
+        left: 15px;
+    }
+    .carousel-control.right {
+        right: 15px;
+    }
     .carousel-caption {
-        // z-index: 10;
+        z-index: 10;
     }
     // .carousel-control > .carousel-button {
     //     position: absolute;
@@ -346,7 +362,23 @@ section.success {
         }
     }
 }
-
+footer {
+    color: white;
+}
+footer h3 {
+    margin-bottom: 30px;
+}
+footer .footer-above {
+    padding-top: 50px;
+    // background-color: $accent-color;
+}
+footer .footer-col {
+    margin-bottom: 50px;
+}
+footer .footer-below {
+    padding: 25px 0;
+    background-color: $accent-color;
+}
 .btn-outline {
     color: white;
     font-size: 20px;
