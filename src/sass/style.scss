@@ -25,10 +25,11 @@ $accent2-color: #458588;
 $header-background-color: #689D6A;
 // $header-text-color: #EBDBB2;
 // $header-text-color: #1D2021;
-$header-text-color: #FBF1C7;
+$header-text-color: white;
 $header-accent-color: #458588;
 $navbar-background-color: #1D2021;
-$navbar-text-color: #EBDBB2;
+// $navbar-text-color: #EBDBB2;
+$navbar-text-color: white;
 // $about-background-color: #3C3836;
 $about-background-color: #458588;
 $portfolio-background-color: #3C3836;
@@ -41,16 +42,19 @@ p {
 }
 h1 {
     font-family: $header-font;
+    color: white;
 }
 h2 {
     font-family: $header-font;
     font-weight: 700;
     font-size: 48px;
+    color: white;
 }
 h3 {
     font-family: $header-font;
     font-weight: 700;
     font-size: 32px;
+    color: white;
 }
 hr.line-custom {
     padding: 0;
@@ -105,13 +109,11 @@ header {
             text-transform: uppercase;
             font-weight: 700;
             font-size: 2em;
-            color: $header-text-color;
         }
 
         .skills {
             font-size: 1.25em;
             font-weight: 300;
-            color: $header-text-color;
         }
     }
 }
