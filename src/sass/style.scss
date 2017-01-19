@@ -11,27 +11,40 @@
 // $navbar-text-color: #FFFFFF;
 // $about-background-color: #000000;
 
+$header-font: "Montserrat";
+$paragraph-font: "Roboto";
+
 $background-color: #282828;
-$text-color: #EBDBB2;
-$accent-color: #CC241D;
-$accent2-color: #D65D0E;
-$header-background-color: #282828;
-$header-text-color: #EBDBB2;
-$header-accent-color: #98971A;
+$text-color: #FBF1C7;
+$darker-text-color: #EBDBB2;
+$accent-color: #D65D0E;
+$accent2-color: #458588;
+// $header-background-color: #282828;
+// $header-background-color: #EBDBB2;
+$header-background-color: #FBF1C7;
+// $header-text-color: #EBDBB2;
+$header-text-color: #1D2021;
+$header-accent-color: #458588;
 $navbar-background-color: #1D2021;
 $navbar-text-color: #EBDBB2;
 $about-background-color: #3C3836;
 
 p {
-    font-family: "Roboto";
+    font-family: $paragraph-font;
     font-weight: 400;
     font-size: 18px;
+    text-align: justify;
+}
+h1 {
+    font-family: $header-font;
 }
 h2 {
+    font-family: $header-font;
     font-weight: 700;
     font-size: 48px;
 }
 h3 {
+    font-family: $header-font;
     font-weight: 700;
     font-size: 32px;
 }
@@ -84,7 +97,7 @@ header {
     .intro-text {
         .name {
             display: block;
-            font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: $header-font;//"Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
             text-transform: uppercase;
             font-weight: 700;
             font-size: 2em;
@@ -163,7 +176,7 @@ section.success {
 }
 .portfolio-item {
     h3 {
-        font-family: "Montserrat";//, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: $header-font;//, "Helvetica Neue", Helvetica, Arial, sans-serif;
         text-align: center;
     }
     p {
@@ -225,7 +238,6 @@ section.success {
 }
 .project-title {
     h2 {
-        font-family: "Montserrat";//, "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 }
 .project-description {
@@ -233,16 +245,13 @@ section.success {
     // border-width: 1px;
 
     h3 {
-        font-family: "Montserrat";//, "Helvetica Neue", Helvetica, Arial, sans-serif;
         text-align: center;
     }
     p {
-        font-family: "Roboto";
     }
 }
 .project-write-up {
     p {
-        font-family: "Roboto";
     }
 }
 .carousel {
@@ -287,7 +296,7 @@ section.success {
 }
 .navbar-custom {
     background: $navbar-background-color;
-    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: $header-font;
     text-transform: uppercase;
     font-weight: 700;
     border: none;
