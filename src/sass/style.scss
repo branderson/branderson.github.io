@@ -14,7 +14,8 @@
 $background-color: #282828;
 $text-color: #EBDBB2;
 $accent-color: #CC241D;
-$header-background-color: #555555;
+$accent2-color: #D65D0E;
+$header-background-color: #282828;
 $header-text-color: #EBDBB2;
 $header-accent-color: #98971A;
 $navbar-background-color: #1D2021;
@@ -177,7 +178,7 @@ section.success {
         overflow: hidden;
 
         .caption {
-            background-color: $header-background-color;//rgba(24, 188, 156, 0.9);
+            background-color: $about-background-color;
             position: absolute;
             width: 100%;
             height: 100%;
@@ -196,6 +197,7 @@ section.success {
                 color: white;
                 i {
                     margin-top: -12px;
+                    color: $accent2-color;
                 }
                 h3,
                 h4 {
