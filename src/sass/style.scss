@@ -116,7 +116,14 @@ section.success {
   }
 }
 .top-section {
-    padding-top: 100px;
+    padding-top: 50px;
+}
+@media (min-width: 768px) {
+    .top-section {
+        .container {
+            padding-top: 100px;
+        }
+    }
 }
 .body-section {
     padding-top: 50px;
