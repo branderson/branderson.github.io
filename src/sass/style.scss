@@ -98,7 +98,6 @@ header {
   margin: 0 auto;
 }
 section {
-    padding-top: 100px;
     h2 {
       margin: 0;
       // font-size: 3em;
@@ -115,6 +114,13 @@ section.success {
   section.first {
     padding-top: 75px;
   }
+}
+.body-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.last-body-section {
+    padding-top: 50px;
 }
 .section-heading {
     h2 {
@@ -138,9 +144,12 @@ section.success {
         display: block;
         position: relative;
         max-width: 400px;
+        height: 300px;
         margin: 0 auto;
+        overflow: hidden;
+
         .caption {
-            background: rgba(24, 188, 156, 0.9);
+            background-color: $header-background-color;//rgba(24, 188, 156, 0.9);
             position: absolute;
             width: 100%;
             height: 100%;
@@ -169,6 +178,11 @@ section.success {
         .caption:hover {
             opacity: 1;
         }
+        img {
+            object-fit: cover;
+            min-width: 100%;
+            min-height: 100%;
+        }
     }
     * {
         z-index: 2;
@@ -179,31 +193,39 @@ section.success {
         margin: 0 0 30px;
     }
 }
-.project-description {
-    h3 {
-        text-align: center;
-    }
-}
 .project-title {
     h2 {
-        transform: uppercase;
+        font-family: "Montserrat";//, "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
-    img {
+}
+.project-description {
+    h3 {
+        font-family: "Montserrat";//, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-align: center;
+    }
+    p {
+        font-family: "Roboto";
+    }
+}
+.project-write-up {
+    p {
+        font-family: "Roboto";
     }
 }
 /* Carousel base class */
 .carousel {
-    // height: 500px;
     // margin-bottom: 60px;
-    max-height: 500px;
+    // height: 504px;
+    // width: 896px;
 
-    // /* Declare heights because of positioning of img element */
-    // .item {
-    //     height: 500px;
-    //     background-color: #777;
-    // }
+    /* Declare heights because of positioning of img element */
+    .item {
+        width: 100%;
+        height: 100%;
+        background-color: #777;
+    }
     .item > img {
-        max-height: 500px;
+        min-width: 100%;
         display: block;
         margin: auto;
         // position: absolute;
@@ -213,10 +235,10 @@ section.success {
         // width: auto;
         // height: 500px;
     }
-    // /* Since positioning the image, we need to help out the caption */
-    // .carousel-caption {
-    //     z-index: 10;
-    // }
+    /* Since positioning the image, we need to help out the caption */
+    .carousel-caption {
+        // z-index: 10;
+    }
     // .carousel-control > .carousel-button {
     //     position: absolute;
     //     // width: 100%;

@@ -78,24 +78,16 @@
             <!-- Carousel================================================== -->
             <div class="row">
                 <div id="myCarousel" class="col-sm-12 col-md-8 col-md-offset-2 carousel slide" data-ride="carousel">
-                <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
                     <ol class="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <img class="d-block img-fluid" src="../resources/portfolio/cabin.png" alt="First slide">
-                          <!-- <img src="../resources/portfolio/cabin.png" alt="First slide"> -->
+                            <img class="d-block img-fluid" src="../resources/portfolio/TiledLoader1.png" alt="TiledLoader 1">
                         </div>
                         <div class="item">
-                            <img class="d-block img-fluid" src="../resources/portfolio/cake.png" alt="Second slide">
-                          <!-- <img src="../resources/portfolio/cabin.png" alt="First slide"> -->
-                        </div>
-                        <div class="item">
-                            <img class="d-block img-fluid" src="../resources/portfolio/circus.png" alt="Third slide">
-                          <!-- <img src="../resources/portfolio/cabin.png" alt="First slide"> -->
+                            <img class="d-block img-fluid" src="../resources/portfolio/TiledLoader2.png" alt="TiledLoader 2">
                         </div>
                     </div>
                     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -110,6 +102,7 @@
             </div>
 
             <hr class="line-primary">
+
             <div class="row project-description">
                 <div class="col-sm-12 col-md-8 col-md-offset-2">
                     <div class="row">
@@ -120,6 +113,16 @@
                             <p>Unity editor extension for loading Tiled Map Editor files into Unity, providing a 2D, tile-based workflow for designing both 2D and 3D levels.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <hr class="line-primary">
+
+            <div class="row project-write-up">
+                <div class="col-sm-12 col-md-8 col-md-offset-2">
+                    <p>TiledLoader was originally created as part of another project I was working on for a class. I needed to create a labyrinth level for a 3D game, and the ideal tool for this that immediately came to mind was Tiled. Unfortunately, Unity does not natively support loading levels made in Tiled, and all existing Unity extensions which add support for this were either overly complicated or lacking in features which I needed.</p>
+                    <p>Thus was born TiledLoader. The original purpose of TiledLoader was simple: load a level from a TMX file, replacing each tile with a prefab paired with that tile. This alone proved extremely powerful, and is the main feature of the free version of TiledLoader. However, as the class project grew, it began to demand a more powerful tool, and TiledLoader grew with it.</p>
+                    <p>One major feature which I quickly realized would be extremely helpful would be to allow the user to run code on each tile that is loaded in, which has access to all custom properties added to that tile. To allow for this, I made TiledLoader load in all custom properties on each tile and store them in a dictionary, which I stored in a component which TiledLoader adds to each object it instantiates.</p>
                 </div>
             </div>
         </div>
