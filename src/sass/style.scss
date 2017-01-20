@@ -95,7 +95,7 @@ header {
     color: $header-text-color;
 
     .container {
-        padding-top: 100px;
+        padding-top: 50px;
         padding-bottom: 50px;
     }
     img {
@@ -120,7 +120,7 @@ header {
 @media (min-width: 768px) {
     header {
         .container {
-            padding-top: 200px;
+            padding-top: 150px;
             padding-bottom: 100px;
         }
         .intro-text {
@@ -133,42 +133,49 @@ header {
         }
     }
 }
+.anchor {
+    display: block;
+    top: -50px;
+    position: relative;
+}
+@media (min-width: 768px) {
+    .anchor {
+        top: -100px;
+    }
+}
 .img-centered {
   margin: 0 auto;
 }
 section {
+    padding-top: 50px;
+    padding-bottom: 50px;
     h2 {
       margin: 0;
       // font-size: 3em;
     }
 }
-section.success {
+section.first {
+    padding-top: 100px;
+}
+section.last {
+    padding-top: 50px;
+    padding-bottom: 0px;
+}
+section.about {
   background: $about-background-color;
 }
 @media (max-width: 767px) {
-  section {
-    padding: 75px 0;
-  }
-  section.first {
-    padding-top: 75px;
-  }
-}
-.top-section {
-    padding-top: 50px;
-}
-@media (min-width: 768px) {
-    .top-section {
-        .container {
-            padding-top: 100px;
-        }
+    section {
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
-}
-.body-section {
-    padding-top: 100px;
-    padding-bottom: 50px;
-}
-.last-body-section {
-    padding-top: 100px;
+    section.first {
+        padding-top: 25px;
+    }
+    section.last {
+        padding-top: 50px;
+        padding-bottom: 0px;
+    }
 }
 .section-heading {
     h2 {

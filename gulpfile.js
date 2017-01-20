@@ -108,13 +108,13 @@ gulp.task('js', function() {
         }))
         .pipe(gulp.dest(config.distPath + '/js'));
     // Bower JS files
-    return gulp.src(config.bowerDir + '/**/*.js')
-        .pipe(uglify())
-        .pipe(concat('vendor.min.js'))
-        .on("error", notify.onError(function(error) {
-            return "Error: " + error.message;
-        }))
-        .pipe(gulp.dest(config.distPath + '/js'));
+    // return gulp.src(config.bowerDir + '/**/*.js')
+    //     .pipe(uglify())
+    //     .pipe(concat('vendor.min.js'))
+    //     .on("error", notify.onError(function(error) {
+    //         return "Error: " + error.message;
+    //     }))
+    //     .pipe(gulp.dest(config.distPath + '/js'));
 });
 
 // gulp.task('copy-resources', function() {
