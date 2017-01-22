@@ -16,7 +16,8 @@ $paragraph-font: "Roboto";
 
 $background-color: #282828;
 $text-color: #FBF1C7;
-$link-color: #D79921;
+// $link-color: #D79921;
+$link-color: #FBF1C7;
 $darker-text-color: #EBDBB2;
 $accent-color: #D65D0E;
 $accent2-color: #458588;
@@ -32,7 +33,8 @@ $navbar-background-color: #1D2021;
 // $navbar-text-color: #EBDBB2;
 $navbar-text-color: white;
 // $about-background-color: #3C3836;
-$about-background-color: #458588;
+// $about-background-color: #458588;
+$about-background-color: #282828;
 $portfolio-background-color: #3C3836;
 
 p {
@@ -189,10 +191,20 @@ section.about {
     }
 }
 .download-link {
+    display: block;
+    height: 38px;
+    line-height: 38px;
     color: $link-color;
     font-family: $paragraph-font;
-    // text-align: center;
-    font-size: 18px;
+
+    span {
+        font-size: 18px;
+        padding-left: 18px;
+        vertical-align: middle;
+    }
+    i {
+        vertical-align: middle;
+    }
 }
 .portfolio-item {
     h3 {
