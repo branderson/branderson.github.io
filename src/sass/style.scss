@@ -16,6 +16,7 @@ $paragraph-font: "Roboto";
 
 $background-color: #282828;
 $text-color: #FBF1C7;
+$link-color: #D79921;
 $darker-text-color: #EBDBB2;
 $accent-color: #D65D0E;
 $accent2-color: #458588;
@@ -186,6 +187,12 @@ section.about {
         // font-size: 2em;
         // color: $header-text-color;
     }
+}
+.download-link {
+    color: $link-color;
+    font-family: $paragraph-font;
+    // text-align: center;
+    font-size: 18px;
 }
 .portfolio-item {
     h3 {
