@@ -100,7 +100,7 @@ gulp.task('css', function() {
 // Minify, concatenate, and copy over JS files from src and Bower to dist
 gulp.task('js', function() {
     // src JS files
-    gulp.src(config.srcPath + '/**/*.js')
+    return gulp.src(config.srcPath + '/**/*.js')
         .pipe(uglify())
         .pipe(concat('all.min.js'))
         .on("error", notify.onError(function(error) {
@@ -138,7 +138,7 @@ gulp.task('webserver', function() {
 });
 
 // Clean dist, build Sass and copy sources to dist
-gulp.task('build', gulp.series(gulp.parallel('icons', 'sass', 'css', 'js'), 'inject'));
+gulp.task('build', gulp.parallel('icons', 'sass', 'css', 'js'));
 
 // Watch files for changes
 gulp.task('watch', function() {

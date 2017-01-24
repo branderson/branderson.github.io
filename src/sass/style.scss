@@ -205,17 +205,20 @@ section.contact {
         // font-size: 2em;
     }
 }
-.download-link {
+.about-link {
     display: block;
     height: 38px;
     line-height: 38px;
     font-family: $paragraph-font;
+    opacity: .6;
+    text-transform: uppercase;
+    color: $text-color;
 
     span {
         display: inline-block;
         position: relative;
-        font-size: 18px;
-        padding-left: 18px;
+        font-size: 14px;
+        padding-left: 14px;
         vertical-align: middle;
     }
     i {
@@ -224,8 +227,21 @@ section.contact {
         top: 4px;
     }
 }
-.download-link:hover {
+.about-link:hover,
+.about-link:focus, 
+.about-link:active {
     color: $link-hover-color;
+    opacity: 1;
+}
+// .about-link:focus,
+// .about-link:active {
+// // .about-link:visited {
+//     opacity: .6;
+//     color: $text-color;
+// }
+@media (max-width: 767px) {
+    .about-link {
+    }
 }
 .portfolio-item {
     h3 {
