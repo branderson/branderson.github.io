@@ -144,6 +144,7 @@ gulp.task('build', gulp.parallel('icons', 'sass', 'css', 'js'));
 gulp.task('watch', function() {
     gulp.watch(config.srcPath + '/**/*.scss', gulp.series('sass'));
     gulp.watch(config.srcPath + '/**/*.css', gulp.series('css'));
+    gulp.watch(config.srcPath + '/**/*.js', gulp.series('js'));
     gulp.watch([
         // config.srcPath + '/index.html',
         config.distPath + '/**/*.css',

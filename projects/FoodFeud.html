@@ -101,7 +101,12 @@
             <!--     </div> -->
             <!-- </div> -->
             <div class="row">
-                <iframe id="FF" class="col-xs-12 text-center" frameborder="0" src="https://itch.io/embed-upload/364731?color=272C2D" allowfullscreen="" width="896" height="574"></iframe>
+                <div class="webgl-frame col-xs-12">
+                    <iframe id="foodFeudFrame" src="about:blank" frameborder="0" allowfullscreen=""></iframe>
+                    <a id="foodFeudButton">
+                        <i class="fa fa-play fa-5x"></i>
+                    </a>
+                </div>
             </div>
 
             <div class="row">
@@ -155,14 +160,15 @@
         </div>
     </footer>
 
-    <!-- inject:js-->
-    <!-- endinject -->
-
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- inject:js-->
+    <script src="../dist/js/all.min.js"></script>
+    <!-- endinject -->
 </body>
 
 </html>
