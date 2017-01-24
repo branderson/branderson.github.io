@@ -93,7 +93,9 @@ hr.line-full {
 a {
     color: $link-color;
 }
-a:hover {
+a:hover,
+a:focus, 
+a:active {
     color: $link-hover-color;
 }
 body {
