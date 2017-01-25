@@ -6,6 +6,6 @@ $('#foodFeudButton').on('click', function(event) {
 
 $('#litLimoButton').on('click', function(event) {
     event.preventDefault();
-    $('#litLimoFrame').attr('src', 'https://itch.io/embed/102358?color=272C2D');
+    $('#litLimoFrame').attr('src', 'https://itch.io/embed-upload/334094?color=272C2D');
     $(this).hide();
 });
