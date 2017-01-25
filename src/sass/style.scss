@@ -18,12 +18,14 @@ $paragraph-font: "Roboto";
 $background-color: #272C2D;
 $text-color: white;
 $link-color: white;
+// $link-hover-color: #18EDD9;
 $link-hover-color: #18EDD9;
 $heading-text-color: white;
 // $link-color: #D79921;
 $darker-text-color: #EBDBB2;
 $accent-color: #18EDD9;
-$accent2-color: #017C7F;
+$accent2-color: #FF5826;
+// $accent2-color: #017C7F;
 // $header-background-color: #689D6A;
 // $header-background-color: #18697C;
 $header-background-color: #017C7F;
@@ -39,6 +41,7 @@ $about-background-color: #0A3D44;
 // $about-background-color: #3C3836;
 $portfolio-background-color: #3C3836;
 $contact-background-color: #0A3D44;
+$footer-background-color: #017C7F;
 
 p {
     font-family: $paragraph-font;
@@ -74,29 +77,49 @@ hr.line-header {
     border-color: $header-accent-color;
 
 }
-hr.line-light {
+hr.line-light-1 {
     @extend .line-custom;
     border-color: $accent-color;
     // max-width: 250px;
     max-width: 250px;
 }
-hr.line-primary {
+hr.line-light-2 {
+    @extend .line-custom;
+    border-color: $accent2-color;
+    // max-width: 250px;
+    max-width: 250px;
+}
+hr.line-primary-1 {
     @extend .line-custom;
     border-color: $accent-color;
     max-width: 100%;
 }
-hr.line-full {
+hr.line-primary-2 {
+    @extend .line-custom;
+    border-color: $accent2-color;
+    max-width: 100%;
+}
+hr.line-full-1 {
     @extend .line-custom;
     border-color: $accent-color;
+    max-width: 100%;
+}
+hr.line-full-2 {
+    @extend .line-custom;
+    border-color: $accent2-color;
     max-width: 100%;
 }
 a {
+    text-decoration: none;
     color: $link-color;
+    opacity: .5;
 }
 a:hover,
 a:focus, 
 a:active {
+    text-decoration: none;
     color: $link-hover-color;
+    opacity: 1;
 }
 body {
   // font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -215,6 +238,7 @@ section.contact {
     opacity: .6;
     text-transform: uppercase;
     color: $text-color;
+    text-decoration: none;
 
     span {
         display: inline-block;
@@ -228,12 +252,20 @@ section.contact {
         position: relative;
         top: 4px;
     }
+    img {
+        color: white;
+        display: inline-block;
+        position: relative;
+        // top: 4px;
+        height: 28px;
+    }
 }
 .about-link:hover,
 .about-link:focus, 
 .about-link:active {
     color: $link-hover-color;
     opacity: 1;
+    text-decoration: none;
 }
 // .about-link:focus,
 // .about-link:active {
@@ -262,7 +294,7 @@ section.contact {
         overflow: hidden;
 
         .caption {
-            background-color: $portfolio-background-color;
+            // background-color: $portfolio-background-color;
             position: absolute;
             width: 100%;
             height: 100%;
@@ -405,7 +437,7 @@ section.contact {
         div {
             background-color: rgba(0, 0, 0, .25);
             i {
-                opacity: .5;
+                opacity: .6;
                 color: $accent2-color;
                 width: 100%;
                 height: 100%;
@@ -418,9 +450,12 @@ section.contact {
     a:hover,
     a:focus,
     a:active {
-        div > i {
-            opacity: 1;
-            color: $accent2-color;
+        div {
+            background-color: rgba(0, 0, 0, .15);
+            i {
+                opacity: 1;
+                color: $accent2-color;
+            }
         }
     }
 }
@@ -518,7 +553,7 @@ footer .footer-col {
 }
 footer .footer-below {
     padding: 25px 0;
-    background-color: $accent2-color;
+    background-color: $footer-background-color;
 }
 // .btn-outline {
 //     color: white;
@@ -538,9 +573,9 @@ footer .footer-below {
 // }
 .btn-primary {
     color: white;
-    background-color: $accent2-color;
+    background-color: $accent-color;
     border-radius: 0;
-    border-color: $accent2-color;
+    border-color: $accent-color;
     font-weight: 700;
     width: 100px;
 }
