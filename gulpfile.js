@@ -2,12 +2,16 @@ var gulp = require('gulp'),
     del = require('del'),
     webserver = require('gulp-webserver'),
     sass = require('gulp-sass'),
+    filter = require('gulp-filter'),
     uglify = require('gulp-uglify'),
     cleanCSS = require('gulp-clean-css'),
     concat = require('gulp-concat'),
+    rename = require('gulp-rename'),
+    flatten = require('gulp-flatten'),
     notify = require('gulp-notify'),
     inject = require('gulp-inject'),
-    bower = require('gulp-bower');
+    bower = require('gulp-bower'),
+    mainBowerFiles = require('main-bower-files');
 
 var config = {
     srcPath: './src',
@@ -46,10 +50,10 @@ gulp.task('inject', gulp.series(function() {
 }));
 
 // Copy FontAwesome to dist
-gulp.task('icons', function() {
-    return gulp.src(config.bowerDir + '/font-awesome/fonts/**.*')
-        .pipe(gulp.dest(config.distPath + '/fonts'));
-});
+// gulp.task('icons', function() {
+//     return gulp.src(config.bowerDir + '/font-awesome/fonts/**.*')
+//         .pipe(gulp.dest(config.distPath + '/fonts'));
+// });
 
 // gulp.task('compile-bootstrap', function() {
 //     // Compile and move Sass files
@@ -87,15 +91,15 @@ gulp.task('sass', function() {
 });
 
 // Concatenate and copy over regular CSS files from src to dist
-gulp.task('css', function() {
-    return gulp.src(config.srcPath + '/**/*.css')
-        .pipe(cleanCSS())
-        .pipe(concat('style.min.css'))
-        .on("error", notify.onError(function(error) {
-            return "Error: " + error.message;
-        }))
-        .pipe(gulp.dest(config.distPath + '/css'));
-});
+// gulp.task('css', function() {
+//     return gulp.src(config.srcPath + '/**/*.css')
+//         .pipe(cleanCSS())
+//         .pipe(concat('style.min.css'))
+//         .on("error", notify.onError(function(error) {
+//             return "Error: " + error.message;
+//         }))
+//         .pipe(gulp.dest(config.distPath + '/css'));
+// });
 
 // Minify, concatenate, and copy over JS files from src and Bower to dist
 gulp.task('js', function() {
@@ -107,14 +111,32 @@ gulp.task('js', function() {
             return "Error: " + error.message;
         }))
         .pipe(gulp.dest(config.distPath + '/js'));
-    // Bower JS files
-    // return gulp.src(config.bowerDir + '/**/*.js')
-    //     .pipe(uglify())
-    //     .pipe(concat('vendor.min.js'))
-    //     .on("error", notify.onError(function(error) {
-    //         return "Error: " + error.message;
-    //     }))
-    //     .pipe(gulp.dest(config.distPath + '/js'));
+});
+
+gulp.task('bowerFiles', function() {
+    var jsFilter = filter('**/*.js', {restore: true});
+    // var fontFilter = filter(['**/*.eot', '**/*.woff', '**/*.svg', '**/*.ttf'], {restore: true});
+
+    // return gulp.src('./bower.json')
+    return gulp.src(mainBowerFiles())
+        // .pipe(mainBowerFiles( ))
+        // Bower JS files
+        .pipe(jsFilter)
+        .pipe(uglify())
+        // .pipe(concat('vendor.min.js'))
+        .pipe(rename({suffix: ".min"}))
+        .pipe(gulp.dest(config.distPath + '/js'))
+        .pipe(jsFilter.restore)
+
+        .on("error", notify.onError(function(error) {
+            return "Error: " + error.message;
+        }));
+});
+
+gulp.task('bowerFonts', function() {
+    return gulp.src(config.bowerDir + '/**/*.{eot,woff*,svg,ttf}')
+        .pipe(flatten())
+        .pipe(gulp.dest(config.distPath + '/fonts'))
 });
 
 // gulp.task('copy-resources', function() {
@@ -138,12 +160,12 @@ gulp.task('webserver', function() {
 });
 
 // Clean dist, build Sass and copy sources to dist
-gulp.task('build', gulp.parallel('icons', 'sass', 'css', 'js'));
+gulp.task('build', gulp.parallel('bowerFiles', 'bowerFonts', 'sass', 'js'));
 
 // Watch files for changes
 gulp.task('watch', function() {
     gulp.watch(config.srcPath + '/**/*.scss', gulp.series('sass'));
-    gulp.watch(config.srcPath + '/**/*.css', gulp.series('css'));
+    // gulp.watch(config.srcPath + '/**/*.css', gulp.series('css'));
     gulp.watch(config.srcPath + '/**/*.js', gulp.series('js'));
     gulp.watch([
         // config.srcPath + '/index.html',
