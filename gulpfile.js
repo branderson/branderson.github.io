@@ -1,4 +1,6 @@
 var gulp = require('gulp'),
+    util = require('gulp-util'),
+    foreach = require('gulp-foreach'),
     del = require('del'),
     webserver = require('gulp-webserver'),
     sass = require('gulp-sass'),
@@ -11,12 +13,17 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     inject = require('gulp-inject'),
     bower = require('gulp-bower'),
-    mainBowerFiles = require('main-bower-files');
+    mainBowerFiles = require('main-bower-files'),
+    path = require('path'),
+    data = require('gulp-data'),
+    handlebars = require('gulp-compile-handlebars');
 
 var config = {
     srcPath: './src',
     distPath: './dist',
-    bowerDir: './public/vendor'
+    bowerDir: './public/vendor',
+    templateDir: './src/pages/templates',
+    jsonDir: './src/pages/json'
 }
 
 gulp.task('clean:index', gulp.series(function() {
@@ -40,30 +47,14 @@ gulp.task('bower', function() {
 });
 
 // Inject sources
-gulp.task('inject', gulp.series(function() {
-    var target = gulp.src('index.html');
-    var sources = gulp.src([config.distPath + '/**/*.js',
-                            config.distPath + '/**/*.css'], {read: false});
+// gulp.task('inject', gulp.series(function() {
+//     var target = gulp.src('index.html');
+//     var sources = gulp.src([config.distPath + '/**/*.js',
+//                             config.distPath + '/**/*.css'], {read: false});
 
-    return target.pipe(inject(sources))
-        .pipe(gulp.dest('.'));
-}));
-
-// Copy FontAwesome to dist
-// gulp.task('icons', function() {
-//     return gulp.src(config.bowerDir + '/font-awesome/fonts/**.*')
-//         .pipe(gulp.dest(config.distPath + '/fonts'));
-// });
-
-// gulp.task('compile-bootstrap', function() {
-//     // Compile and move Sass files
-//     return gulp.src(config.bowerDir + '/bootstrap-sass/assets/stylesheets/**/*.scss')
-//         .pipe(sass({outputStyle: 'compressed'})
-//             .on("error", notify.onError(function(error) {
-//                 return "Error: " + error.message;
-//             })))
-//         .pipe(gulp.dest(config.distPath + '/css'));
-// });
+//     return target.pipe(inject(sources))
+//         .pipe(gulp.dest('.'));
+// }));
 
 // Compile Sass sources
 gulp.task('sass', function() {
@@ -76,11 +67,6 @@ gulp.task('sass', function() {
                 config.bowerDir + '/bootstrap-sass/assets/stylesheets',
                 config.bowerDir + '/font-awesome/scss'
             ]
-            // loadPath: [
-            //     config.srcPath + '/sass',
-            //     config.bowerDir + '/bootstrap-sass/assets/stylesheets',
-            //     config.bowerDir + '/font-awesome/scss'
-            // ]
         })
         .on("error", notify.onError(function(error) {
             return "Error: " + error.message;
@@ -90,18 +76,7 @@ gulp.task('sass', function() {
         .pipe(gulp.dest(config.distPath + '/css'));
 });
 
-// Concatenate and copy over regular CSS files from src to dist
-// gulp.task('css', function() {
-//     return gulp.src(config.srcPath + '/**/*.css')
-//         .pipe(cleanCSS())
-//         .pipe(concat('style.min.css'))
-//         .on("error", notify.onError(function(error) {
-//             return "Error: " + error.message;
-//         }))
-//         .pipe(gulp.dest(config.distPath + '/css'));
-// });
-
-// Minify, concatenate, and copy over JS files from src and Bower to dist
+// Minify, concatenate, and copy over JS files from src to dist
 gulp.task('js', function() {
     // src JS files
     return gulp.src(config.srcPath + '/**/*.js')
@@ -113,17 +88,27 @@ gulp.task('js', function() {
         .pipe(gulp.dest(config.distPath + '/js'));
 });
 
+gulp.task('handlebars', function() {
+    return gulp.src(config.jsonDir + '/*.json')
+        .pipe(foreach(function(stream, file) {
+            var json = require(config.jsonDir + '/' + path.basename(file.path));
+            var name = path.basename(file.path, '.json');
+            var templateName = json.template;
+            return gulp.src(config.templateDir + '/' + templateName + '.handlebars')
+                .pipe(handlebars(json, {}))
+                .pipe(rename({basename: name, extname: '.html'}));
+        }))
+        .pipe(gulp.dest('./projects'));
+});
+
+// Minify and copy over JS files from Bower to dist
 gulp.task('bowerFiles', function() {
     var jsFilter = filter('**/*.js', {restore: true});
-    // var fontFilter = filter(['**/*.eot', '**/*.woff', '**/*.svg', '**/*.ttf'], {restore: true});
 
-    // return gulp.src('./bower.json')
     return gulp.src(mainBowerFiles())
-        // .pipe(mainBowerFiles( ))
         // Bower JS files
         .pipe(jsFilter)
         .pipe(uglify())
-        // .pipe(concat('vendor.min.js'))
         .pipe(rename({suffix: ".min"}))
         .pipe(gulp.dest(config.distPath + '/js'))
         .pipe(jsFilter.restore)
@@ -133,20 +118,12 @@ gulp.task('bowerFiles', function() {
         }));
 });
 
+// Copy over fonts from Bower to dist
 gulp.task('bowerFonts', function() {
     return gulp.src(config.bowerDir + '/**/*.{eot,woff*,svg,ttf}')
         .pipe(flatten())
         .pipe(gulp.dest(config.distPath + '/fonts'))
 });
-
-// gulp.task('copy-resources', function() {
-//     // Copy over resources
-//     return gulp.src(config.srcPath + '/resources/*')
-//         .on("error", notify.onError(function(error) {
-//             return "Error: " + error.message;
-//         }))
-//         .pipe(gulp.dest(config.distPath + '/resources'));
-// });
 
 // Webserver
 gulp.task('webserver', function() {
@@ -160,24 +137,21 @@ gulp.task('webserver', function() {
 });
 
 // Clean dist, build Sass and copy sources to dist
-gulp.task('build', gulp.parallel('bowerFiles', 'bowerFonts', 'sass', 'js'));
+gulp.task('build', gulp.parallel('bowerFiles', 'bowerFonts', 'sass', 'js', 'handlebars'));
 
 // Watch files for changes
 gulp.task('watch', function() {
     gulp.watch(config.srcPath + '/**/*.scss', gulp.series('sass'));
-    // gulp.watch(config.srcPath + '/**/*.css', gulp.series('css'));
     gulp.watch(config.srcPath + '/**/*.js', gulp.series('js'));
     gulp.watch([
-        // config.srcPath + '/index.html',
-        config.distPath + '/**/*.css',
-        config.distPath + '/**/*.js'
-    ], gulp.series('inject'));
+        config.templateDir + '/**/*.handlebars', 
+        config.jsonDir + '/**/*.json'
+    ], gulp.series('handlebars'));
     // gulp.watch([
-    //     config.srcPath + '/index.html',
-    //     config.srcPath + '/**/*.scss',
-    //     config.srcPath + '/**/*.css',
-    //     config.srcPath + '/**/*.js'
-    // ], ['build']);
+    //     // config.srcPath + '/index.html',
+    //     config.distPath + '/**/*.css',
+    //     config.distPath + '/**/*.js'
+    // ], gulp.series('inject'));
 });
 
 // Watch files for changes and start webserver

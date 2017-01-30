@@ -1,0 +1,11 @@
+{
+    "template": "projectTemplate",
+    "project": "TiledLoader",
+    "carousel_img_1": "/resources/portfolio/TiledLoader/TiledLoader1.png",
+    "carousel_img_2": "/resources/portfolio/TiledLoader/TiledLoader2.png",
+    "carousel_alt_1": "Alt 1",
+    "carousel_alt_2": "Alt 2",
+    "about": "<p>Unity editor extension for loading Tiled Map Editor files into Unity, providing a 2D, tile-based workflow for designing both 2D and 3D levels.</p>",
+    "write_up": "<p>TiledLoader was originally created as part of another project I was working on for a class. I needed to create a labyrinth level for a 3D game, and the ideal tool for this that immediately came to mind was Tiled. Unfortunately, Unity does not natively support loading levels made in Tiled, and all existing Unity extensions which add support for this were either overly complicated or lacking in features which I needed.</p><p>Thus was born TiledLoader. The original purpose of TiledLoader was simple: load a level from a TMX file, replacing each tile with a prefab paired with that tile. This alone proved extremely powerful, and is the main feature of the free version of TiledLoader. However, as the class project grew, it began to demand a more powerful tool, and TiledLoader grew with it.</p><p>One major feature which I quickly realized would be extremely helpful would be to allow the user to run code on each tile that is loaded in, which has access to all custom properties added to that tile. To allow for this, I made TiledLoader load in all custom properties on each tile and store them in a dictionary, which I stored in a component which TiledLoader adds to each object it instantiates.</p>"
+}
+
