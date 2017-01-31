@@ -361,10 +361,8 @@ section.contact {
     }
 }
 .carousel {
-    // height: 530px;
     height: 300px;
     overflow: hidden;
-    // padding-bottom: 30px;
 
     .item {
         height: 300px;
@@ -372,10 +370,14 @@ section.contact {
         background-color: #777;
     }
     img {
-        // object-fit: cover;
-        height: 100%;
-        width: 100%;
-        // min-height: 300px;
+        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        width: auto;
+        height: auto;
+        min-height: 300px;
+        min-width: 100%;
     }
     .carousel-indicators {
         // bottom: 0px;
