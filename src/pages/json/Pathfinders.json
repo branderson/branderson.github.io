@@ -1,11 +1,11 @@
 {
     "template": "projectTemplate",
     "project": "Pathfinders",
-    "carousel_img_1": "/resources/portfolio/TiledLoader/TiledLoader1.png",
-    "carousel_img_2": "/resources/portfolio/TiledLoader/TiledLoader2.png",
-    "carousel_alt_1": "Alt 1",
-    "carousel_alt_2": "Alt 2",
-    "about": "<p></p>",
+    "carousel": [
+        { "path": "/resources/portfolio/TiledLoader/TiledLoader1.png", "alt": "alt1" },
+        { "path": "/resources/portfolio/TiledLoader/TiledLoader2.png", "alt": "alt2" }
+    ],
+    "about": "<p>2-player VR dungeon crawler in which the VR player explores a dungeon while the second player uses the keyboard, mouse, and computer monitor to control an overhead camera to help guide the VR player, and a terminal to manipulate the dungeon.</p>",
     "write_up": "<p></p>"
 }
 

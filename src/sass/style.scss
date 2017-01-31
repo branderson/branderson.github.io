@@ -1,6 +1,7 @@
 $icon-font-path: '/dist/fonts/';
 @import 'bootstrap';
 @import 'font-awesome';
+@import 'header';
 
 
 // $background-color: #FFFFFF;
@@ -371,8 +372,10 @@ section.contact {
         background-color: #777;
     }
     img {
-        object-fit: cover;
-        min-height: 300px;
+        // object-fit: cover;
+        height: 100%;
+        width: 100%;
+        // min-height: 300px;
     }
     .carousel-indicators {
         // bottom: 0px;

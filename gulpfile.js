@@ -15,7 +15,6 @@ var gulp = require('gulp'),
     bower = require('gulp-bower'),
     mainBowerFiles = require('main-bower-files'),
     path = require('path'),
-    data = require('gulp-data'),
     handlebars = require('gulp-compile-handlebars');
 
 var config = {
@@ -94,8 +93,18 @@ gulp.task('handlebars', function() {
             var json = require(config.jsonDir + '/' + path.basename(file.path));
             var name = path.basename(file.path, '.json');
             var templateName = json.template;
+            var options = {
+                ignorePartials: true,
+                batch: ['src/pages/partials'],
+                helpers: {
+                    inc: function(value)
+                    {
+                        return parseInt(value) + 1;
+                    }
+                }
+            }
             return gulp.src(config.templateDir + '/' + templateName + '.handlebars')
-                .pipe(handlebars(json, {}))
+                .pipe(handlebars(json, options))
                 .pipe(rename({basename: name, extname: '.html'}));
         }))
         .pipe(gulp.dest('./projects'));

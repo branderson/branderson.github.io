@@ -1,8 +1,8 @@
 {
-  "name": "portfolio-site",
-  "homepage": "https://github.com/branderson/branderson.github.io",
+  "name": "branderosn-portfolio",
+  "homepage": "https://branderson.io",
   "authors": [
-    "Brad Anderson <brad.anderson1995@gmail.com>"
+    "Brad Anderson <brad@branderson.io>"
   ],
   "description": "",
   "main": "index.html",
@@ -11,7 +11,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
+    "public",
     "test",
     "tests"
   ],
