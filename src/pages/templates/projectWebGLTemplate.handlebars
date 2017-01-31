@@ -41,11 +41,11 @@
             </div>
 
             <div class="row">
-                <div class="webgl-frame col-xs-12" style="height:{{game-frame-height}}">
-                    <iframe id={{game_frame_id}} src="about:blank" frameborder="0" allowfullscreen="" style="width:{{game-frame-width}}"></iframe>
-                    <a id="game_start_button_id" style="background-image: url({{game_frame_background}});">
+                <div class="webgl-frame col-xs-12" style="height:{{game_frame_height}}">
+                    <iframe id="{{game_frame_id}}" src="about:blank" frameborder="0" allowfullscreen="" style="width:{{game_frame_width}};"></iframe>
+                    <a id="{{game_start_button_id}}" style="background-image: url({{game_frame_background}});">
                         <div>
-                            <i class="fa fa-play fa-5x"></i>
+                            <i class="fa fa-play fa-5x" style="line-height:{{game_frame_height}};"></i>
                         </div>
                     </a>
                 </div>

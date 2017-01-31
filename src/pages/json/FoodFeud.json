@@ -4,6 +4,8 @@
     "game_frame_id": "foodFeudFrame",
     "game_start_button_id": "foodFeudButton",
     "game_frame_background": "/resources/portfolio/FoodFeud/FoodFeud1.png",
+    "game_frame_width": "896px",
+    "game_frame_height": "574px",
     "about": "<p>Tower Defense game made during a 12-hour game jam on April 6th, 2016.</p><p>Collaboration with <a href='https://www.adinasayef.net' target='_blank'><span>Adina Sayef</span></a>, who made the art for the game</p><a href='https://github.com/branderson/FoodFeud' target='_blank' class='about-link'><i class='fa fa-github fa-2x'></i><span>View on Github</span></a>",
     "write_up": ""
 }
