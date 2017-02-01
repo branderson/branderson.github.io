@@ -3,7 +3,7 @@
     "project": "Lit Limo",
     "game_frame_id": "litLimoFrame",
     "game_start_button_id": "litLimoButton",
-    "game_frame_background": "/resources/portfolio/FoodFeud/FoodFeud1.png",
+    "game_frame_background": "/resources/portfolio/LitLimo/LitLimo1.png",
     "game_frame_width": "1000px",
     "game_frame_height": "770px",
     "about": "<p>Classic GTA-like game made during a 12-hour game jam on February 27th, 2016.</p><p>Collaboration with <a href='https://www.adinasayef.net' target='_blank'><span>Adina Sayef</span></a>, who made the art for the game</p><a href='https://github.com/branderson/LitLimo' target='_blank' class='about-link'><i class='fa fa-github fa-2x'></i><span>View on Github</span></a>",

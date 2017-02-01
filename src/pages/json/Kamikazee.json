@@ -1,10 +1,10 @@
 {
     "template": "projectTemplate",
     "project": "Kamikazee",
-    "carousel_img_1": "/resources/portfolio/TiledLoader/TiledLoader1.png",
-    "carousel_img_2": "/resources/portfolio/TiledLoader/TiledLoader2.png",
-    "carousel_alt_1": "Alt 1",
-    "carousel_alt_2": "Alt 2",
+    "carousel": [
+        { "path": "/resources/portfolio/TiledLoader/TiledLoader1.png", "alt": "alt1" },
+        { "path": "/resources/portfolio/TiledLoader/TiledLoader2.png", "alt": "alt2" }
+    ],
     "about": "<p>Experimental 3D game made during a 12 hour game jam in which progression is linked to taking advantage of physics bugs common in other games.</p>",
     "write_up": "<p></p>"
 }

@@ -22,22 +22,26 @@ var config = {
     distPath: './dist',
     bowerDir: './public/vendor',
     templateDir: './src/pages/templates',
-    jsonDir: './src/pages/json'
+    jsonDir: './src/pages/json',
+    projectPath: './projects'
 }
 
-gulp.task('clean:index', gulp.series(function() {
-    return del(['index.html']);
-}));
-
-// Clean dist folder and index.html
+// Clean dist folder
 gulp.task('clean:dist', gulp.series(function() {
     return del([
         'dist/**/*'
     ]);
 }));
 
+// Clean projects folder
+gulp.task('clean:projects', gulp.series(function() {
+    return del([
+        'projects/**/*'
+    ]);
+}));
+
 // Clean project
-gulp.task('clean', gulp.parallel('clean:dist'));
+gulp.task('clean', gulp.parallel('clean:dist', 'clean:projects'));
 
 // Initialize Bower
 gulp.task('bower', function() {
@@ -107,7 +111,7 @@ gulp.task('handlebars', function() {
                 .pipe(handlebars(json, options))
                 .pipe(rename({basename: name, extname: '.html'}));
         }))
-        .pipe(gulp.dest('./projects'));
+        .pipe(gulp.dest(config.projectPath));
 });
 
 // Minify and copy over JS files from Bower to dist
