@@ -48,7 +48,7 @@ $footer-background-color: #017C7F;
 
 p {
     font-family: $paragraph-font;
-    font-weight: 400;
+    font-weight: 200;
     font-size: 18px;
     // text-align: justify;
 }
@@ -206,10 +206,18 @@ section.last {
     padding-bottom: 0px;
 }
 section.about {
-  background: $about-background-color;
+    background: $about-background-color;
+
+    p {
+        font-weight: 400;
+    }
 }
 section.contact {
   background: $contact-background-color;
+
+    p {
+        font-weight: 400;
+    }
 }
 @media (max-width: 767px) {
     section {
@@ -287,6 +295,7 @@ section.contact {
     }
     p {
         padding-bottom: 50px;
+        font-weight: 400;
     }
     .portfolio-link {
         display: block;
@@ -354,6 +363,7 @@ section.contact {
         text-align: center;
     }
     p {
+        font-weight: 400;
     }
 }
 .project-write-up {
