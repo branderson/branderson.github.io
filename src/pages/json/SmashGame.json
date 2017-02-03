@@ -5,7 +5,7 @@
         { "path": "/resources/portfolio/TiledLoader/TiledLoader1.png", "alt": "alt1" },
         { "path": "/resources/portfolio/TiledLoader/TiledLoader2.png", "alt": "alt2" }
     ],
-    "about": "<p>2D Multiplayer fighting game similar to Super Smash Bros.</p>",
+    "about": "<p>2D Multiplayer fighting game similar to Super Smash Bros.</p><a href='https://github.com/branderson/2DMultiplayer' target='_blank' class='about-link'><i class='fa fa-github fa-2x'></i><span>View on Github</span></a>",
     "write_up": "<p></p>"
 }
 

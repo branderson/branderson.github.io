@@ -107,11 +107,16 @@ gulp.task('handlebars', function() {
                     }
                 }
             }
+            util.log("Compiling " + path.basename(file.path) + " using template " + templateName);
             return gulp.src(config.templateDir + '/' + templateName + '.handlebars')
                 .pipe(handlebars(json, options))
                 .pipe(rename({basename: name, extname: '.html'}));
         }))
-        .pipe(gulp.dest(config.projectPath));
+        .pipe(gulp.dest(config.projectPath))
+        .on("error", notify.onError(function(error) {
+            return "Error: " + error.message;
+        }))
+        .on('end', function(){ util.log('Done!'); });
 });
 
 // Minify and copy over JS files from Bower to dist

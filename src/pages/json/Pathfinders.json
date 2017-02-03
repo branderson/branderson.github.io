@@ -5,7 +5,7 @@
         { "path": "/resources/portfolio/TiledLoader/TiledLoader1.png", "alt": "alt1" },
         { "path": "/resources/portfolio/TiledLoader/TiledLoader2.png", "alt": "alt2" }
     ],
-    "about": "<p>2-player VR dungeon crawler in which the VR player explores a dungeon while the second player uses the keyboard, mouse, and computer monitor to control an overhead camera to help guide the VR player, and a terminal to manipulate the dungeon.</p>",
+    "about": "<p>2-player VR dungeon crawler in which the VR player explores a dungeon while the second player uses the keyboard, mouse, and computer monitor to control an overhead camera to help guide the VR player, and a terminal to manipulate the dungeon.</p><p>Collaboration with <a href='https://github.com/brcolli' target='_blank'><span>Ben Collins</span></a> and <a href='https://github.com/jlu368' target='_blank'><span>Jeff Lu</span></a></p><a href='https://github.com/branderson/Pathfinders' target='_blank' class='about-link'><i class='fa fa-github fa-2x'></i><span>View on Github</span></a>",
     "write_up": "<p></p>"
 }
 
