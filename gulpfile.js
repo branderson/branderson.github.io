@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    fs = require('fs'),
     util = require('gulp-util'),
     foreach = require('gulp-foreach'),
     del = require('del'),
@@ -91,10 +92,11 @@ gulp.task('js', function() {
         .pipe(gulp.dest(config.distPath + '/js'));
 });
 
+// Compile project pages using handlebars
 gulp.task('handlebars', function() {
     return gulp.src(config.jsonDir + '/*.json')
         .pipe(foreach(function(stream, file) {
-            var json = require(config.jsonDir + '/' + path.basename(file.path));
+            var json = JSON.parse(fs.readFileSync(config.jsonDir + '/' + path.basename(file.path), 'utf8'));
             var name = path.basename(file.path, '.json');
             var templateName = json.template;
             var options = {
@@ -165,11 +167,6 @@ gulp.task('watch', function() {
         config.templateDir + '/**/*.handlebars', 
         config.jsonDir + '/**/*.json'
     ], gulp.series('handlebars'));
-    // gulp.watch([
-    //     // config.srcPath + '/index.html',
-    //     config.distPath + '/**/*.css',
-    //     config.distPath + '/**/*.js'
-    // ], gulp.series('inject'));
 });
 
 // Watch files for changes and start webserver
