@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     filter = require('gulp-filter'),
     uglify = require('gulp-uglify'),
     cleanCSS = require('gulp-clean-css'),
+    uncss = require('gulp-uncss'),
     concat = require('gulp-concat'),
     rename = require('gulp-rename'),
     flatten = require('gulp-flatten'),
@@ -75,6 +76,9 @@ gulp.task('sass', function() {
         .on("error", notify.onError(function(error) {
             return "Error: " + error.message;
         })))
+        .pipe(uncss({
+            html: ['index.html', 'projects/**/*.html']
+        }))
         .pipe(cleanCSS())
         .pipe(concat('style.min.css'))
         .pipe(gulp.dest(config.distPath + '/css'));
