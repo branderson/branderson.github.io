@@ -12,6 +12,6 @@ $('#litLimoButton').on('click', function(event) {
 
 $('#kamikazeButton').on('click', function(event) {
     event.preventDefault();
-    $('#kamikazeFrame').attr('src', 'https://itch.io/embed-upload/126405?color=272C2D');
+    $('#kamikazeFrame').attr('src', 'https://itch.io/embed-upload/415788?color=272C2D');
     $(this).hide();
 });
