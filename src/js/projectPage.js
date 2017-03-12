@@ -9,3 +9,9 @@ $('#litLimoButton').on('click', function(event) {
     $('#litLimoFrame').attr('src', 'https://itch.io/embed-upload/334094?color=272C2D');
     $(this).hide();
 });
+
+$('#kamikazeButton').on('click', function(event) {
+    event.preventDefault();
+    $('#kamikazeFrame').attr('src', 'https://itch.io/embed-upload/126405?color=272C2D');
+    $(this).hide();
+});

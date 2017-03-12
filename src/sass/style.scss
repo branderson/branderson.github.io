@@ -288,6 +288,31 @@ section.contact {
     .about-link {
     }
 }
+.about-link:hover,
+.about-link:focus, 
+.about-link:active {
+    color: $link-hover-color;
+    opacity: 1;
+    text-decoration: none;
+}
+.contact-link {
+    @extend .about-link;
+
+    span {
+        font-size: 18px;
+    }
+    text-transform: none;
+}
+// .about-link:focus,
+// .about-link:active {
+// // .about-link:visited {
+//     opacity: .6;
+//     color: $text-color;
+// }
+@media (max-width: 767px) {
+    .about-link {
+    }
+}
 .portfolio-item {
     h3 {
         font-family: $heading-font;//, "Helvetica Neue", Helvetica, Arial, sans-serif;
