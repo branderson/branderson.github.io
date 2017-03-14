@@ -2,11 +2,11 @@
     "template": "projectTemplate",
     "project": "PyZelda",
     "carousel": [
-        { "path": "/resources/portfolio/PyZelda/PyZelda1.png", "alt": "alt1" },
-        { "path": "/resources/portfolio/PyZelda/PyZelda2.png", "alt": "alt2" },
-        { "path": "/resources/portfolio/PyZelda/PyZelda3.png", "alt": "alt3" },
-        { "path": "/resources/portfolio/PyZelda/PyZelda4.png", "alt": "alt4" },
-        { "path": "/resources/portfolio/PyZelda/PyZelda5.png", "alt": "alt5" }
+        { "path": "/resources/portfolio/PyZelda/PyZelda1.jpg", "alt": "alt1" },
+        { "path": "/resources/portfolio/PyZelda/PyZelda2.jpg", "alt": "alt2" },
+        { "path": "/resources/portfolio/PyZelda/PyZelda3.jpg", "alt": "alt3" },
+        { "path": "/resources/portfolio/PyZelda/PyZelda4.jpg", "alt": "alt4" },
+        { "path": "/resources/portfolio/PyZelda/PyZelda5.jpg", "alt": "alt5" }
     ],
     "about": "<p>Implementation of The Legend of Zelda: Link's Awakening in a custom game engine built on top of PyGame in Python.</p><a href='https://github.com/branderson/PyZelda' target='_blank' class='about-link'><i class='fa fa-github fa-2x'></i><span>View on Github</span></a>",
     "write_up": "<p></p>"
