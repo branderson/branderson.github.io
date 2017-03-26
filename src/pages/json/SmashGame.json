@@ -2,8 +2,13 @@
     "template": "projectTemplate",
     "project": "Smash Game",
     "carousel": [
-        { "path": "/resources/portfolio/TiledLoader/TiledLoader1.png", "alt": "alt1" },
-        { "path": "/resources/portfolio/TiledLoader/TiledLoader2.png", "alt": "alt2" }
+        { "path": "/resources/portfolio/Smash/Smash1.jpg", "alt": "alt1", "caption": "<h3>Local Multiplayer</h3><p>Up to four human or computer players at once!</p>" },
+        { "path": "/resources/portfolio/Smash/Smash2.jpg", "alt": "alt2", "caption": "<h3>Custom Input Manager</h3><p>Supports keyboard/mouse, XInput, and DirectInput controllers, as well as AI opponents!</p>" },
+        { "path": "/resources/portfolio/Smash/Smash3.jpg", "alt": "alt3", "caption": "<h3>Learning AI</h3><p>AI learns how you play over time and fights the same way you do!</p>" },
+        { "path": "/resources/portfolio/Smash/Smash4.jpg", "alt": "alt4", "caption": "<h3>State-Based AI</h3><p>Alongside the learning AI, a state-based AI provides default behaviour for computer opponents based on their state. AI's will attempt to recover from falls from the stage in the best way available to them.</p>" },
+        { "path": "/resources/portfolio/Smash/Smash5.jpg", "alt": "alt5", "caption": "<h3>Adaptive Camera</h3><p>Camera smoothly zooms and moves to adapt to the positions of the players, keeping all players on screen while keeping as close to the action as possible!</p>" },
+        { "path": "/resources/portfolio/Smash/Smash6.jpg", "alt": "alt6" },
+        { "path": "/resources/portfolio/Smash/Smash7.jpg", "alt": "alt7" }
     ],
     "about": "<p>2D Multiplayer fighting game similar to Super Smash Bros.</p><a href='https://github.com/branderson/2DMultiplayer' target='_blank' class='about-link'><i class='fa fa-github fa-2x'></i><span>View on Github</span></a>",
     "write_up": "<p></p>"
