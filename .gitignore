@@ -3,7 +3,7 @@ node_modules
 public/vendor
 
 # Generated files
-#dist
+dist
 
 # Cache
 .sass-cache

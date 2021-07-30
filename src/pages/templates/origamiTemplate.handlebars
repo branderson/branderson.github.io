@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Bradley Anderson">
 
-    <title>Terrain Generator</title>
+    <title>{{project}}</title>
 
     <!-- inject:css-->
     <link rel="stylesheet" href="/dist/css/style.min.css">
@@ -31,47 +31,13 @@
 
 <body id="page-top" class="index">
 
-    <!-- Navbar -->
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="/#page-top">Bradley Anderson</a>
-            </div>
-    
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/#about">About</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/#portfolio">Portfolio</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/#origami">Origami</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+    {{> navbar }}
 
     <section id="project" class="first">
         <div class="container">
             <div class="row project-title">
                 <div class="col-sm-12 col-md-8 col-md-offset-2 text-center">
-                    <h2>Terrain Generator</h2>
+                    <h2>{{project}}</h2>
                     <hr class="line-primary-2">
                 </div>
             </div>
@@ -80,12 +46,29 @@
             <div class="row">
                 <div id="myCarousel" class="col-sm-12 col-md-8 col-md-offset-2 carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
+                    {{#each carousel}}
+                    {{#if @first}}
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    {{else}}
+                        <li data-target="#myCarousel" data-slide-to="{{@index}}"></li>
+                    {{/if}}
+                    {{/each}}
                     </ol>
                     <div class="carousel-inner" role="listbox">
+                    {{#each carousel}}
+                    {{#if @first}}
                         <div class="item active">
-                            <img src="/resources/portfolio/TerrainGenerator/TerrainGenerator1.png" alt="alt1">
+                    {{else}}
+                        <div class="item">
+                    {{/if}}
+                            <img src="{{path}}" alt="{{alt}}">
+                            {{#if caption}}
+                            <div class="carousel-caption d-none d-md-block">
+                                {{{caption}}}
+                            </div>
+                            {{/if}}
                         </div>
+                    {{/each}}
                     </div>
                     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -107,7 +90,7 @@
                             <!-- <button onclick=\'document.getElementById("TL1").src="../resources/portfolio/TiledLoader/TiledLoader1.png";\' alt="TiledLoader 1">Set image</button> -->
                         </div>
                         <div class="col-sm-9">
-                            <p></p>
+                            {{{about}}}
                         </div>
                     </div>
                     <hr class="line-full-2">
@@ -116,38 +99,13 @@
 
             <div class="row project-write-up">
                 <div class="col-sm-12 col-md-8 col-md-offset-2">
-                    <p></p>
+                    {{{write_up}}}
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="text-center">
-        <div class="footer-above">
-            <div class="container">
-                <div class="row">
-                    <hr class="line-primary-1">
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-8 col-md-offset-2">
-                        <a class="btn btn-primary" href="/#page-top">
-                            <i class="fa fa-home fa-3x"></i>
-                            <!-- <i>Return to Home</i> -->
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-below">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        Copyright &copy; Bradley Anderson 2017
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    {{> footer}}
 
     <!-- inject:js-->
     <script src="/dist/js/jquery.min.js"></script>
